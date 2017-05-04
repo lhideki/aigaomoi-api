@@ -270,6 +270,9 @@
 	                return;
 	              }
 	              var result = extractor !== null ? extractor(data) : data;
+
+	              console.info(result, (0, _stringify2.default)(data));
+
 	              resolve(result);
 	            });
 	            break;
@@ -281,6 +284,9 @@
 	                return;
 	              }
 	              var result = extractor !== null ? extractor(data) : data;
+
+	              console.info(result, (0, _stringify2.default)(data));
+
 	              resolve(result);
 	            });
 	            break;
@@ -297,7 +303,7 @@
 	  }, {
 	    key: 'translationByGoogle',
 	    value: function translationByGoogle(text) {
-	      var url = 'https://www.googleapis.com/language/translate/v2';
+	      var url = 'https://translation.googleapis.com/language/translate/v2';
 	      var args = {
 	        parameters: {
 	          q: text,

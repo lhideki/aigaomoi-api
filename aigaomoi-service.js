@@ -34,6 +34,9 @@ export default class AigaomoiService {
                 return
               }
               const result = extractor !== null ? extractor(data) : data
+
+              console.info(result, JSON.stringify(data))
+
               resolve(result)
             })
             break;
@@ -45,6 +48,9 @@ export default class AigaomoiService {
                 return
               }
               const result = extractor !== null ? extractor(data) : data
+
+              console.info(result, JSON.stringify(data))
+
               resolve(result)
             })
             break;
@@ -59,7 +65,7 @@ export default class AigaomoiService {
   }
 
   translationByGoogle(text) {
-    const url = 'https://www.googleapis.com/language/translate/v2'
+    const url = 'https://translation.googleapis.com/language/translate/v2'
     const args = {
       parameters: {
         q: text,
