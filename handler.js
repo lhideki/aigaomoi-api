@@ -7,6 +7,9 @@ const errorHandler = (error) => {
 
   return {
     statusCode: error,
+    headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
     body: JSON.stringify({ message: 'Failed', error: error })
   }
 }
@@ -16,6 +19,9 @@ export const echo = (event, context, callback) => {
 
   callback(null, {
     statusCode: 200,
+    headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
     body: JSON.stringify({
       result: event.queryStringParameters,
     }),
@@ -28,6 +34,9 @@ export const translationByGoogle = (event, context, callback) => {
   service.translationByGoogle(text).then(result => {
     callback(null, {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({
         translated: result
       })
@@ -43,6 +52,9 @@ export const emotioncheckByGoogle = (event, context, callback) => {
   service.emotioncheckByGoogle(text).then(result => {
     callback(null, {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({
         magnitude: result.magnitude,
         score: result.score
@@ -75,6 +87,9 @@ export const emotioncheck = (event, context, callback) => {
   service.emotioncheck(text).then(result => {
     callback(null, {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({
         magnitude: result.magnitude,
         score: result.score
