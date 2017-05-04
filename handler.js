@@ -29,7 +29,7 @@ export const echo = (event, context, callback) => {
 }
 
 export const translationByGoogle = (event, context, callback) => {
-  const text = event.body.text
+  const text = JSON.parse(event.body).text
 
   service.translationByGoogle(text).then(result => {
     callback(null, {
@@ -47,7 +47,7 @@ export const translationByGoogle = (event, context, callback) => {
 }
 
 export const emotioncheckByGoogle = (event, context, callback) => {
-  const text = event.body.text
+  const text = JSON.parse(event.body).text
 
   service.emotioncheckByGoogle(text).then(result => {
     callback(null, {
@@ -66,7 +66,7 @@ export const emotioncheckByGoogle = (event, context, callback) => {
 }
 
 export const emotioncheck = (event, context, callback) => {
-  const text = event.body.text
+  const text = JSON.parse(event.body).text
   // TODO dummy
   /*
   let score = Math.random() * (1 - (-1)) + (-1)

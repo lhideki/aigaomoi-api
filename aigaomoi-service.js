@@ -102,6 +102,8 @@ export default class AigaomoiService {
   }
 
   emotioncheck(text) {
+    console.log(text)
+    
     return this.translationByGoogle(text).then(translatedText => {
       return this.emotioncheckByGoogle(translatedText)
     })
